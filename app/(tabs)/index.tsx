@@ -8,27 +8,51 @@ export default function Index() {
     title,
     subtitle,
     value,
+    status = "default",
+    isLast = false,
   }: {
     icon: string;
     title: string;
     subtitle: string;
     value: string | number;
-  }) => (
-    <View className="w-full bg-card h-20 px-4 py-2 rounded-xl mb-2 items-center flex-row">
-      <Text className="text-4xl text-center mr-4">{icon}</Text>
-      <View className="flex-grow">
-        <Text className="text-lg font-bold text-left text-textPrimary">
-          {title}
-        </Text>
-        <Text className="text-base text-left text-textMuted">{subtitle}</Text>
+    status?: "default" | "green" | "yellow" | "red" | "orange";
+    isLast?: boolean;
+  }) => {
+    const statusBg = {
+      green: "bg-cardGreen",
+      yellow: "bg-cardYellow",
+      red: "bg-cardRed",
+      orange: "bg-cardOrange",
+      default: "bg-accent",
+    }[status];
+
+    const statusText = {
+      green: "text-textGreen",
+      yellow: "text-textYellow",
+      red: "text-textRed",
+      orange: "text-textOrange",
+      default: "text-green-900",
+    }[status];
+
+    const borderClass = isLast ? "" : "border-b-[2px] border-background";
+
+    return (
+      <View
+        className={`w-full h-24 px-4 py-3 items-center flex-row ${borderClass}`}
+      >
+        <Text className="text-3xl mr-4">{icon}</Text>
+        <View className="flex-grow">
+          <Text className="text-lg font-heading text-textPrimary">{title}</Text>
+          <Text className="text-sm font-soft text-textMuted">{subtitle}</Text>
+        </View>
+        <View className={`px-3 py-1 rounded-xl ${statusBg}`}>
+          <Text className={`text-base font-body text-center ${statusText}`}>
+            {value}
+          </Text>
+        </View>
       </View>
-      <View className="bg-accent px-4 py-1 rounded-2xl">
-        <Text className="text-lg font-bold text-center text-green-900">
-          {value}
-        </Text>
-      </View>
-    </View>
-  );
+    );
+  };
 
   const ProductStat = ({
     image,
@@ -44,7 +68,7 @@ export default function Index() {
     storage: string;
   }) => (
     <View
-      className="h-28 bg-card rounded-xl flex-row px-2 py-4"
+      className="h-32 bg-card rounded-2xl flex-row px-3 py-4 shadow-sm"
       style={{ width: "48%" }}
     >
       {/* image */}
@@ -53,61 +77,75 @@ export default function Index() {
       </View>
 
       {/* info */}
-      <View className="pl-2 w-9/12 justify-between">
-        <Text className="text-base font-bold">{name}</Text>
-        <View className="flex-row justify-between  w-full">
-          <Text className="text-base font-bold text-red-300">{quantity}</Text>
-          <Text className="text-base font-bold text-textPrimary">{time}</Text>
+      <View className="pl-3 w-9/12 justify-between">
+        <Text className="text-base font-heading text-textPrimary">{name}</Text>
+        <View className="flex-row justify-between w-full">
+          <Text className="text-sm font-body text-textRed">{quantity}</Text>
+          <Text className="text-sm font-soft text-textPrimary">{time}</Text>
         </View>
-        <Text className="text-base font-bold text-textMuted">{storage}</Text>
+        <Text className="text-sm font-soft text-textMuted">{storage}</Text>
       </View>
     </View>
   );
 
   return (
     <SafeAreaView className="flex-1 bg-background px-4" edges={["top"]}>
-      <Text className="text-2xl font-bold text-center text-textPrimary mb-4">
+      <Text className="text-2xl font-heading text-center text-textPrimary mb-3">
         Dashboard
       </Text>
-      <StatCard
-        icon="📦"
-        title="Total Inventory Items"
-        subtitle="Last updated 2 hrs ago"
-        value={152}
-      />
-      <StatCard
-        icon="💵"
-        title="Total Iventory Value"
-        subtitle="Within 7 days"
-        value={12735}
-      />
-      <StatCard
-        icon="⚠️"
-        title="Low Stock"
-        subtitle="Needs restock"
-        value={3}
-      />
-      <StatCard icon="🚨" title="Near Expiry" subtitle="use soon!" value={3} />
 
-      <Text className="text-lg font-bold my-4">Time-Sensitive Inventory</Text>
+      {/* Overview */}
+      <View className="w-full rounded-2xl bg-card h-auto overflow-hidden">
+        <StatCard
+          icon="📦"
+          title="Total Inventory Items"
+          subtitle="Last updated 2 hrs ago"
+          value={152}
+          status="green"
+        />
+        <StatCard
+          icon="💵"
+          title="Total Inventory Value"
+          subtitle="Within 7 days"
+          value="$12,735"
+          status="green"
+        />
+        <StatCard
+          icon="⚠️"
+          title="Low Stock"
+          subtitle="Needs restock"
+          value={3}
+          status="orange"
+        />
+        <StatCard
+          icon="🚨"
+          title="Near Expiry"
+          subtitle="Use soon!"
+          value={3}
+          status="red"
+          isLast
+        />
+      </View>
+
+      <Text className="text-lg font-heading text-textPrimary my-3">
+        Time-Sensitive Inventory
+      </Text>
 
       <ScrollView
-        contentContainerStyle={{ paddingBottom: 15 }}
+        contentContainerStyle={{ paddingBottom: 20 }}
         showsVerticalScrollIndicator={false}
       >
-        <View className="flex flex-row flex-wrap justify-between gap-2">
-          <View className="flex flex-row flex-wrap justify-between gap-2">
-            {productStats.map((item, index) => (
-              <ProductStat
-                key={index}
-                image={item.image}
-                name={item.name}
-                quantity={item.quantity}
-                time={item.time}
-                storage={item.storage}
-              />
-            ))}
-          </View>
+        <View className="flex flex-row flex-wrap justify-between gap-y-3">
+          {productStats.map((item, index) => (
+            <ProductStat
+              key={index}
+              image={item.image}
+              name={item.name}
+              quantity={item.quantity}
+              time={item.time}
+              storage={item.storage}
+            />
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -1,16 +1,31 @@
-import { FontAwesome } from "@expo/vector-icons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Tabs } from "expo-router";
 
 export default function _layout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "blue" }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "#2E7D32", // text-textPrimary
+        tabBarInactiveTintColor: "#777777", // text-textMuted
+        tabBarStyle: {
+          backgroundColor: "#FFF",  
+          borderTopWidth: 0,
+          paddingBottom: 8,
+          paddingTop: 6,
+        },
+        tabBarLabelStyle: {
+          fontFamily: "OutfitRegular", 
+          fontSize: 13,
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           headerShown: false,
           title: "Dashboard",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <MaterialIcons name="space-dashboard" size={22} color={color} />
           ),
         }}
       />
@@ -18,9 +33,9 @@ export default function _layout() {
         name="inventory"
         options={{
           headerShown: false,
-          title: "inventory",
+          title: "Inventory",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <MaterialIcons name="inventory" size={22} color={color} />
           ),
         }}
       />
