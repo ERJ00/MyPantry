@@ -1,50 +1,76 @@
-# Welcome to your Expo app 👋
+# MyPantry – Smart Kitchen Inventory App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**MyPantry** is a mobile app that helps users organize their kitchen inventory, monitor expiration dates, and minimize food waste all wrapped in a clean, pastel-themed interface. With simple CRUD functionality, beautiful design, and powerful features, it’s perfect for everyday users who want to keep their pantry in check.
 
-## Get started
+---
 
-1. Install dependencies
+## 🌟 Features
 
-   ```bash
-   npm install
-   ```
+### ✅ Core Functionality
+- Add pantry items (name, category, quantity, expiry date, photo, and etc.)
+- View all items in a searchable, filterable list
+- Edit or delete existing items
+- Color-coded expiry warnings (green = fresh, orange = expiring, red = expired)
+- Dashboard with key stats (e.g., total items, expiring soon)
 
-2. Start the app
+### 🎨 UI Highlights
+- Soft pastel color theme with cream background and white cards
+- Rounded corners, subtle shadows, and clean layout
+- Fonts: Poppins / Nunito for modern, friendly readability
+- Responsive layout with attention to padding and hierarchy
 
-   ```bash
-   npx expo start
-   ```
+### 🧠 Advanced Features (Planned)
+- Push notifications for upcoming expirations
+- Barcode scanner to auto-fill item info
+- Grocery list generator
+- Meal planner suggestions based on inventory
+- Cloud sync using Firebase or Supabase
+- Offline mode with sync on reconnect
+- User authentication and multi-device support
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🛠️ Tech Stack
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+| Layer      | Technology                     |
+|------------|--------------------------------|
+| Frontend   | React Native (Expo)            |
+| Backend    | Firebase / Supabase            |
+| Database   | Firestore / SQLite             |
+| Auth       | Firebase Auth / Supabase Auth  |
+| Styling    | Nativewind / Styled Components |
+| Fonts      | Poppins / Nunito               |
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 📅 Project Milestones
+
+| Milestone                                | Status        |
+|------------------------------------------|---------------|
+| UI Design (all main screens)             | 🔄 In Progress |
+| Basic CRUD Functionality                 | ⏳ Planned     |
+| Local Storage                            | ⏳ Planned     |
+| Expiry Warnings (visual badges)          | ⏳ Planned     |
+| Push Notifications                       | ⏳ Planned     |
+| Authentication (Firebase/Supabase)       | ⏳ Planned     |
+| Cloud Sync (Firestore/Supabase)          | ⏳ Planned     |
+| Barcode Scanner                          | ⏳ Planned     |
+| Grocery List Generator                   | ⏳ Planned     |
+| Offline Mode with Sync                   | ⏳ Planned     |
+
+---
+
+## 🚀 Getting Started
 
 ```bash
-npm run reset-project
-```
+# Clone the repository
+git clone https://github.com/yourusername/mypantry.git
+cd mypantry
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+# Install dependencies
+npm install
+# or
+yarn install
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Run the app
+npx expo start
