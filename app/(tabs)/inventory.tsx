@@ -1,8 +1,9 @@
 import ProductCard from "@/components/ProductCard";
 import SearchBar from "@/components/SearchBar";
 import { productStats } from "@/data/productStats";
+import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Inventory() {
@@ -60,6 +61,16 @@ export default function Inventory() {
           ))}
         </View>
       </ScrollView>
+
+      {/* add button */}
+      <TouchableOpacity
+        onPress={() => {
+          console.log("Add Button");
+        }}
+        className="absolute w-16 h-16 bg-textGreen right-4 bottom-4 rounded-full justify-center items-center"
+      >
+        <Ionicons name="add-sharp" size={36} color="#E5F9E0" />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
