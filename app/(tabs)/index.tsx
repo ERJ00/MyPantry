@@ -1,5 +1,6 @@
+import ProductCard from "@/components/ProductCard";
 import { productStats } from "@/data/productStats";
-import { Image, ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
@@ -52,40 +53,6 @@ export default function Index() {
     );
   };
 
-  const ProductStat = ({
-    image,
-    name,
-    quantity,
-    time,
-    storage,
-  }: {
-    image: string;
-    name: string;
-    quantity: string;
-    time: string;
-    storage: string;
-  }) => (
-    <View
-      className="h-32 bg-card rounded-2xl flex-row px-3 py-4 shadow-sm border border-accent"
-      style={{ width: "48%" }}
-    >
-      {/* image */}
-      <View className="w-1/4">
-        <Image source={{ uri: image }} className="w-full h-full rounded" />
-      </View>
-
-      {/* info */}
-      <View className="pl-3 w-9/12 justify-between ">
-        <Text className="text-base font-heading text-textPrimary">{name}</Text>
-        <View className="flex-row justify-between w-full">
-          <Text className="text-sm font-body text-textRed">{quantity}</Text>
-          <Text className="text-sm font-soft text-textPrimary">{time}</Text>
-        </View>
-        <Text className="text-sm font-soft text-textMuted">{storage}</Text>
-      </View>
-    </View>
-  );
-
   return (
     <SafeAreaView className="flex-1 bg-background px-4" edges={["top"]}>
       <Text className="text-2xl font-heading text-center text-textPrimary mb-3">
@@ -135,7 +102,7 @@ export default function Index() {
       >
         <View className="flex flex-row flex-wrap justify-between gap-y-3">
           {productStats.map((item, index) => (
-            <ProductStat
+            <ProductCard
               key={index}
               image={item.image}
               name={item.name}
