@@ -1,4 +1,5 @@
-import { Image, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 interface ProductCardProps {
   image: string;
@@ -15,10 +16,12 @@ export default function ProductCard({
   time,
   storage,
 }: ProductCardProps) {
+  const router = useRouter();
   return (
-    <View
+    <TouchableOpacity
       className="h-32 bg-card rounded-2xl flex-row px-3 py-4 shadow-sm border border-accent"
       style={{ width: "48%" }}
+      onPress={() => router.replace(`/details/${name}`)}
     >
       {/* image */}
       <View className="w-1/4">
@@ -34,6 +37,6 @@ export default function ProductCard({
         </View>
         <Text className="text-sm font-soft text-textMuted">{storage}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }

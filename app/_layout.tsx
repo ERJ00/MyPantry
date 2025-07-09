@@ -1,7 +1,7 @@
-import { Stack } from "expo-router";
-import { useEffect, useState } from "react";
 import * as Font from "expo-font";
+import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
+import { useEffect, useState } from "react";
 import "../global.css";
 
 // Prevent auto-hiding the splash screen until fonts are loaded
@@ -35,6 +35,7 @@ export default function RootLayout() {
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="details/[id]" options={{ headerShown: false }} />
     </Stack>
   );
 }
