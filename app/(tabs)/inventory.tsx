@@ -1,6 +1,8 @@
+import ProductCard from "@/components/ProductCard";
 import SearchBar from "@/components/SearchBar";
+import { productStats } from "@/data/productStats";
 import { useState } from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Inventory() {
@@ -22,7 +24,7 @@ export default function Inventory() {
 
       {/* notification, can be hide */}
       <View
-        className={`w-full px-4 py-3 items-center flex-row bg-cardRed rounded-xl`}
+        className={`w-full px-4 py-3 items-center flex-row bg-cardRed rounded-xl mb-3`}
       >
         <Text className="text-3xl mr-4">🚨</Text>
         <View className="flex-grow">
@@ -41,7 +43,23 @@ export default function Inventory() {
       </View>
 
       {/* product items */}
-
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 20 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View className="flex flex-row flex-wrap justify-between gap-y-3">
+          {productStats.map((item, index) => (
+            <ProductCard
+              key={index}
+              image={item.image}
+              name={item.name}
+              quantity={item.quantity}
+              time={item.time}
+              storage={item.storage}
+            />
+          ))}
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
