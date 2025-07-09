@@ -1,6 +1,6 @@
 import SearchBar from "@/components/SearchBar";
 import { useState } from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Inventory() {
@@ -13,7 +13,35 @@ export default function Inventory() {
       </Text>
 
       {/* search bar */}
-      <SearchBar value={search} onChangeText={setSearch} placeholder="Search an item"/>
+      <SearchBar
+        value={search}
+        onChangeText={setSearch}
+        placeholder="Search an item"
+        className=" mb-3"
+      />
+
+      {/* notification, can be hide */}
+      <View
+        className={`w-full px-4 py-3 items-center flex-row bg-cardRed rounded-xl`}
+      >
+        <Text className="text-3xl mr-4">🚨</Text>
+        <View className="flex-grow">
+          <Text className="text-lg font-heading text-textPrimary">
+            Critical Items
+          </Text>
+          <Text className="text-sm font-soft text-textMuted">
+            Need restock or near expiry
+          </Text>
+        </View>
+        <View className={`px-3 py-1 rounded-xl bg-card`}>
+          <Text className={`text-base font-body text-center text-textRed`}>
+            5
+          </Text>
+        </View>
+      </View>
+
+      {/* product items */}
+
     </SafeAreaView>
   );
 }
