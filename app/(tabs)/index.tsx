@@ -37,9 +37,7 @@ export default function Index() {
     const borderClass = isLast ? "" : "border-b-[2px] border-background";
 
     return (
-      <View
-        className={`w-full h-24 px-4 py-3 items-center flex-row ${borderClass}`}
-      >
+      <View className={`w-full px-4 py-3 items-center flex-row ${borderClass}`}>
         <Text className="text-3xl mr-4">{icon}</Text>
         <View className="flex-grow">
           <Text className="text-lg font-heading text-textPrimary">{title}</Text>
@@ -68,7 +66,7 @@ export default function Index() {
     storage: string;
   }) => (
     <View
-      className="h-32 bg-card rounded-2xl flex-row px-3 py-4 shadow-sm"
+      className="h-32 bg-card rounded-2xl flex-row px-3 py-4 shadow-sm border border-accent"
       style={{ width: "48%" }}
     >
       {/* image */}
@@ -77,7 +75,7 @@ export default function Index() {
       </View>
 
       {/* info */}
-      <View className="pl-3 w-9/12 justify-between">
+      <View className="pl-3 w-9/12 justify-between ">
         <Text className="text-base font-heading text-textPrimary">{name}</Text>
         <View className="flex-row justify-between w-full">
           <Text className="text-sm font-body text-textRed">{quantity}</Text>
@@ -95,7 +93,7 @@ export default function Index() {
       </Text>
 
       {/* Overview */}
-      <View className="w-full rounded-2xl bg-card h-auto overflow-hidden">
+      <View className="w-full rounded-2xl bg-card h-auto overflow-hidden shadow-sm border border-accent">
         <StatCard
           icon="📦"
           title="Total Inventory Items"
