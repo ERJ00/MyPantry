@@ -21,7 +21,7 @@ export default function ProductCard({
     <TouchableOpacity
       className="h-32 bg-card rounded-2xl flex-row px-3 py-4 shadow-sm border border-accent"
       style={{ width: "48%" }}
-      onPress={() => router.replace(`/details/${name}`)}
+      onPress={() => router.push(`/details/${name}`)}
     >
       {/* image */}
       <View className="w-1/4">
