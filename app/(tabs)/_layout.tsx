@@ -5,17 +5,24 @@ export default function _layout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#2E7D32", // text-textPrimary
-        tabBarInactiveTintColor: "#777777", // text-textMuted
+        tabBarActiveTintColor: "#7DD3A0", // primary color
+        tabBarInactiveTintColor: "#A0AEC0", // textMuted
         tabBarStyle: {
-          backgroundColor: "#FFF",  
-          borderTopWidth: 0,
+          backgroundColor: "#FFFFFF", // surface
+          borderTopWidth: 1,
+          borderTopColor: "#E8E5E0", // cardBorder
           paddingBottom: 8,
           paddingTop: 6,
+          shadowColor: "#7DD3A0",
+          shadowOffset: { width: 0, height: -2 },
+          shadowOpacity: 0.1,
+          shadowRadius: 4,
+          elevation: 8,
         },
         tabBarLabelStyle: {
-          fontFamily: "OutfitRegular", 
-          fontSize: 13,
+          fontFamily: "OutfitRegular",
+          fontSize: 12,
+          fontWeight: "500",
         },
       }}
     >

@@ -14,13 +14,13 @@ export default function SearchBar({
 }) {
   return (
     <View
-      className={`flex-row items-center bg-card rounded-xl px-4 py-2 shadow-sm border border-accent ${className}`}
+      className={`flex-row items-center bg-card rounded-xl px-4 py-3 shadow-soft border border-cardBorder ${className}`}
     >
-      <Feather name="search" size={28} color="#2E7D32" />
+      <Feather name="search" size={20} color="#7DD3A0" />
       <TextInput
-        className="ml-2 flex-1 text-base font-body text-textPrimary"
+        className="ml-3 flex-1 text-base font-body text-textPrimary"
         placeholder={placeholder}
-        placeholderTextColor="#777777"
+        placeholderTextColor="#A0AEC0"
         value={value}
         onChangeText={onChangeText}
       />
