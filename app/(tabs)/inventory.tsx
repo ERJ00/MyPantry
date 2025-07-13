@@ -2,11 +2,13 @@ import ProductCard from "@/components/ProductCard";
 import SearchBar from "@/components/SearchBar";
 import { productData } from "@/data/productStats";
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { useMemo, useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Inventory() {
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [selectedFilter, setSelectedFilter] = useState<
     "all" | "fresh" | "expiring" | "expired"
@@ -259,7 +261,7 @@ export default function Inventory() {
       {/* Floating Add Button */}
       <TouchableOpacity
         onPress={() => {
-          console.log("Add new item to pantry");
+          router.push("/(forms)/addProduct");
         }}
         className="absolute w-16 h-16 bg-primary right-5 bottom-6 rounded-full justify-center items-center shadow-medium"
         style={{

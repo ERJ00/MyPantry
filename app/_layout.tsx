@@ -36,6 +36,7 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="details/[id]" options={{ headerShown: false }} />
+      <Stack.Screen name="(forms)" options={{ headerShown: false }} />
     </Stack>
   );
 }
